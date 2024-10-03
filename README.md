@@ -11,7 +11,7 @@ Macaron consists of four sections:
 - Rudimental. This section contains details of basic macro manipulation. It is not part of this library's interface.
 - Judgmental. This section contains macro functions wrapped around static_assert.
 - Fragmental. This section contains macro functions for token generation.
-- Ornamental. Functions in this section were originally used to deal with the 'comma problem' of C++ preprocessor. The problem was solved via a different approach. This section is kept since it can still simplify some situations.
+- Ornamental. Functions in this section were originally used to deal with the 'comma problem' of C++ preprocessor. The problem was solved via a different approach. This section is kept since it can still simplify some situations.  
 A detailed introduction to each section except Rudimental can be found in the test directory.
 
 ## References
