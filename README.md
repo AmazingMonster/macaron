@@ -4,7 +4,7 @@ A C++ preprocessor library for metaprogramming testing.
 ## Introduction
 This library started as a collection of boilerplates wrapped around static_assert. It was used when I was working on a metaprogramming library named *Conceptrodon*.  
 As Conceptrodon grows more complicated, the sheer amount of boilerplates is both bothersome and error-prone.
-Oftentimes a typo during testing could hide itself in plain sight as I debugged frustratedly inside the real code. Eventually, I made this library.  
+Oftentimes a typo during testing could hide itself in plain sight as I debugged frustratedly through the real code. Eventually, I made this library.  
 The goal of Macaron is to simplify numerous static_asserts and provide a fast way to generate dummy testers. It is possible to create a list of tokens of any amount below 320 by a macro call.
 This allows me to test performance on a large scale.  
 Macaron consists of four sections:
