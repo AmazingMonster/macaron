@@ -1,0 +1,8 @@
+// Copyright 2024 Feng Mofan
+// SPDX-License-Identifier: Apache-2.0
+
+#define DERIVED_TYPE   \
+    MACARON_JUDGMENTAL_DERIVED_TYPE
+
+#define MACARON_JUDGMENTAL_DERIVED_TYPE_BASE_SUPPOSED   \
+    SUPPOSED_BASE

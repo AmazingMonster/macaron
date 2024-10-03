@@ -1,0 +1,8 @@
+// Copyright 2024 Feng Mofan
+// SPDX-License-Identifier: Apache-2.0
+
+#define TEMPLATE    \
+    MACARON_ORNAMENTAL_TEMPLATE
+
+#define MACARON_ORNAMENTAL_TEMPLATE_INSPECTING    \
+    INSPECT_TEMPLATE
