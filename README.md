@@ -8,7 +8,7 @@ As Conceptrodon grows more complicated, the sheer amount of boilerplates is both
 Often, a typo during testing could hide itself in plain sight as I frustratedly debugged through the real code. Eventually, I made this library.  
 
 The goal of Macaron is to simplify numerous static_asserts and provide a fast way to generate dummy testers. A macro call can create a list of tokens of any amount below 320.
-This allows me to test performance on a large scale.  
+This allows me to test metafunction performance on a large scale.  
 
 Macaron consists of four sections:
 - [Rudimental](https://github.com/AmazingMonster/macaron/tree/main/macaron/rudimental). This section contains details of basic macro manipulation. It is not part of this library's interface.
