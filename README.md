@@ -11,10 +11,10 @@ The goal of Macaron is to simplify numerous static_asserts and provide a fast wa
 This allows me to test performance on a large scale.  
 
 Macaron consists of four sections:
-- Rudimental. This section contains details of basic macro manipulation. It is not part of this library's interface.
-- Judgmental. This section contains macro functions wrapped around static_assert.
-- Fragmental. This section contains macro functions for token generation.
-- Ornamental. Functions in this section were originally used to deal with the 'comma problem' of C++ preprocessor. The problem was solved via a different approach. This section is kept since it can still simplify some situations.
+- [Rudimental](https://github.com/AmazingMonster/macaron/tree/main/macaron/rudimental). This section contains details of basic macro manipulation. It is not part of this library's interface.
+- [Judgmental](https://github.com/AmazingMonster/macaron/tree/main/macaron/judgmental). This section contains macro functions wrapped around static_assert.
+- [Fragmental](https://github.com/AmazingMonster/macaron/tree/main/macaron/fragmental). This section contains macro functions for token generation.
+- [Ornamental](https://github.com/AmazingMonster/macaron/tree/main/macaron/ornamental). Functions in this section were originally used to deal with the 'comma problem' of C++ preprocessor. The problem was solved via a different approach. This section is kept since it can still simplify some situations.
 
 A detailed introduction to each section, except Rudimental, can be found in the test directory.
 
