@@ -5,9 +5,9 @@
 #define MACARON_FRAGMENTAL_TEST_FRAGMENTAL_H
 
 /*********************************************************************************************************************/
-// This test demonstrates how to generate a list of enumerated tokens using *_SPROUT.
-// The amount of tokens a single call to *_SPROUT can have is any number below 320.
-// It is possible to create more tokens by calling *_SPROUT repeatedly.
+// This test demonstrates how to generate a list of enumerated tokens using `*_SPROUT`.
+// The amount of tokens a single call to `*_SPROUT` can have is any number below 320.
+// It is possible to create more tokens by calling `*_SPROUT` repeatedly.
 // Llama and horse versions are essentially the same as the sheep version except the macro names.
 /*********************************************************************************************************************/
 
@@ -21,17 +21,17 @@
 
 
 /*********************************************************************************************************************/
-// First, We need to include this header, which contains the implementation of MACARON_FRAGMENTAL_SHEEP_SPROUT.
+// First, We need to include this header, which contains the implementation of `MACARON_FRAGMENTAL_SHEEP_SPROUT`.
 // It is needed for all examples showing below.
 // It has a header guard and thus shall only be truely included once in the entire program.
-// All macro defined here has MACARON_FRAGMENTAL_SHEEP_* prefix in their names.
+// All macro defined here has `MACARON_FRAGMENTAL_SHEEP_*` prefix in their names.
 #include "macaron/fragmental/sheep.hpp"
 
 namespace Macaron {
 namespace Fragmental {
 namespace TestSheep {
 
-// MACARON_FRAGMENTAL_SHEEP_SPROUT relies on the following three macros to generate correct lists.
+// `MACARON_FRAGMENTAL_SHEEP_SPROUT` relies on the following three macros to generate correct lists.
 // It is necessary to define all three of them. 
 // Otherwise these macro names will survive the preprocessing stage and likely cause syntax error during compiling.
 #define MACARON_FRAGMENTAL_SHEEP_PREFIX_SYMBOLS \
@@ -75,7 +75,7 @@ std::same_as<
 static_assert(
 std::same_as<
 
-// We can also add tokens as the second parameter of the *SPROUT function to modify the enumeration.
+// We can also add tokens as the second parameter of the `*SPROUT` function to modify the enumeration.
     std::tuple<
         MACARON_FRAGMENTAL_SHEEP_SPROUT(10, *2 + 1)
     >,
@@ -101,7 +101,7 @@ std::same_as<
 >
 );
 
-// Do not forget to #undef all the macros!
+// Finally, we need to #undef all the macros.
 #undef MACARON_FRAGMENTAL_SHEEP_PREFIX_SYMBOLS
 #undef MACARON_FRAGMENTAL_SHEEP_SUFFIX_SYMBOLS
 #undef MACARON_FRAGMENTAL_SHEEP_SEPARATOR_SYMBOLS
@@ -113,7 +113,7 @@ std::same_as<
 
 
 /*********************************************************************************************************************/
-// It can be tiring and error-prone to type those names all the time. 
+// It is tiring and error-prone to type those names all the time. 
 // Therefore, I wrote some helper macros to simplify the names.
 // To use them, we will need an additional header:
 #include "macaron/fragmental/amenity/define_sheep.hpp"
@@ -158,12 +158,12 @@ std::same_as<
 >
 );
 
-// Don't forget to undefine all the macros!
+// We still need to undefine all the macros.
 #undef SHEEP_PREFIX
 #undef SHEEP_SUFFIX
 #undef SHEEP_SEPARATOR
 
-// Don't forget to include the sister header!
+// Include the sister header to unset "define_sheep.hpp".
 #include "macaron/fragmental/amenity/undef_sheep.hpp"
 
 }}}
@@ -173,7 +173,7 @@ std::same_as<
 
 
 /*********************************************************************************************************************/
-// It can still be annoying to define these setup macros all the time.
+// It is still annoying to define these setup macros all the time.
 // Therefore I pre-define some instances which I find the most useful.
 
 // Still, we need to include this header.
@@ -186,7 +186,7 @@ namespace TestSheep {
 
 // The definitions of all the setup macros are now moved into this header.
 // It does not have a header guard and is intended to be unset right after its use.
-// We can unset it by including its sister header 'undef_integral_constant_sheep.hpp'.
+// We can unset it by including its sister header "undef_integral_constant_sheep.hpp".
 #include "macaron/fragmental/amenity/instances/define_integral_constant_sheep.hpp"
 static_assert(
 std::same_as<
@@ -207,7 +207,7 @@ std::same_as<
     >
 >
 );
-// This header behaves the same as #undef SHEEP_PREFIX, SHEEP_SUFFIX, SHEEP_SEPARATOR manually.
+// This header behaves the same as #undef `SHEEP_PREFIX`, `SHEEP_SUFFIX`, `SHEEP_SEPARATOR` manually.
 #include "macaron/fragmental/amenity/instances/undef_integral_constant_sheep.hpp"
 
 
@@ -226,8 +226,7 @@ std::same_as<
 );
 #include "macaron/fragmental/amenity/instances/undef_integer_sheep.hpp"
 
-
-// Don't forget this header!
+// Unset "define_sheep.hpp"
 #include "macaron/fragmental/amenity/undef_sheep.hpp"
 
 }}}
@@ -239,7 +238,7 @@ std::same_as<
 /*********************************************************************************************************************/
 // There are a couple variations that can generate different lists.
 // While some of them can be produced by manipulating setup macros from the macro function mentioned above,
-// I implement these variations independently to keep the logic simple and to avoid possible compile time overhead.
+// I implement these variations independently to keep the logic simple and to avoid potential compile time overhead.
 /*********************************************************************************************************************/
 
 
@@ -268,7 +267,6 @@ namespace TestSheepReversed {
 
 static_assert(
 std::same_as<
-// Finally, let's sprout the sheep!
     std::tuple<
         SHEEP_REVERSED_SPROUT(10, *2 + 1)
     >,
@@ -289,13 +287,13 @@ std::same_as<
 >
 );
 
-// Don't forget to #undef the macros!
+// #undef the macros.
 #undef SHEEP_REVERSED_PREFIX
 #undef SHEEP_REVERSED_SUFFIX
 #undef SHEEP_REVERSED_SEPARATOR
 
 // There are also some pre-defined instances.
-// Here's one for std::integral_constant:
+// Here's one for `std::integral_constant`:
 #include "macaron/fragmental/amenity/instances/define_integral_constant_sheep_reversed.hpp"
 static_assert(
 std::same_as<
@@ -316,7 +314,7 @@ std::same_as<
     >
 >
 );
-// Unset the instance.
+// Unset "define_integral_constant_sheep_reversed.hpp".
 #include "macaron/fragmental/amenity/instances/undef_integral_constant_sheep_reversed.hpp"
 
 // Here's one for plain integers:
@@ -331,10 +329,10 @@ std::same_as<
     >
 >
 );
-// Unset the instance.
+// Unset "define_integer_sheep_reversed.hpp".
 #include "macaron/fragmental/amenity/instances/undef_integer_sheep_reversed.hpp"
 
-// Unset the convenient header.
+// Unset "define_sheep_reversed.hpp".
 #include "macaron/fragmental/amenity/undef_sheep_reversed.hpp"
 
 }}}
@@ -367,7 +365,6 @@ namespace TestDoubleSheep {
 
 static_assert(
 std::same_as<
-// Sprout the sheep:
     std::tuple<
         DOUBLE_SHEEP_SPROUT(10, *2 + 1)
     >,
@@ -389,13 +386,13 @@ std::same_as<
 >
 );
 
-// #undef the macros!
+// #undef the macros.
 #undef DOUBLE_SHEEP_PREFIX
 #undef DOUBLE_SHEEP_MIDDLE
 #undef DOUBLE_SHEEP_SUFFIX
 #undef DOUBLE_SHEEP_SEPARATOR
 
-// Unset the convenient header.
+// Unset "define_double_sheep.hpp".
 #include "macaron/fragmental/amenity/undef_double_sheep.hpp"
 
 }}}
@@ -405,7 +402,7 @@ std::same_as<
 
 
 /*********************************************************************************************************************/
-// Here's the reversed version for DOUBLE_SHEEP_SPROUT.
+// Here's the reversed version for `DOUBLE_SHEEP_SPROUT`.
 // Implementation header:
 #include "macaron/fragmental/double_sheep_reversed.hpp"
 
@@ -428,7 +425,6 @@ namespace TestDoubleReversedSheep {
 
 static_assert(
 std::same_as<
-// Sprout the sheep:
     std::tuple<
         DOUBLE_SHEEP_REVERSED_SPROUT(10, *2 + 1)
     >,
@@ -450,13 +446,13 @@ std::same_as<
 >
 );
 
-// #undef the macros!
+// #undef the macros.
 #undef DOUBLE_SHEEP_REVERSED_PREFIX
 #undef DOUBLE_SHEEP_REVERSED_MIDDLE
 #undef DOUBLE_SHEEP_REVERSED_SUFFIX
 #undef DOUBLE_SHEEP_REVERSED_SEPARATOR
 
-// Unset the convenient header.
+// Unset "define_double_sheep_reversed.hpp".
 #include "macaron/fragmental/amenity/undef_double_sheep_reversed.hpp"
 
 }}}
@@ -487,7 +483,7 @@ namespace TestBinarySheep {
 
 static_assert(
 std::same_as<
-// Sprout the sheep. Second argument is not available for this macro function:
+// Second argument is not available for this macro function:
     std::tuple<
         BINARY_SHEEP_SPROUT(10)
     >,
@@ -509,7 +505,7 @@ std::same_as<
 >
 );
 
-// #undef the macros!
+// #undef the macros.
 #undef BINARY_SHEEP_PREFIX
 #undef BINARY_SHEEP_SUFFIX
 #undef BINARY_SHEEP_SEPARATOR
@@ -526,11 +522,11 @@ std::same_as<
     >
 >
 );
-// Unset the instance.
+// Unset "define_boolean_sheep.hpp".
 #include "macaron/fragmental/amenity/instances/undef_boolean_sheep.hpp"
 
-// Unset the convenient header.
-#include "macaron/fragmental/amenity/define_binary_sheep.hpp"
+// Unset "define_binary_sheep.hpp".
+#include "macaron/fragmental/amenity/undef_binary_sheep.hpp"
 
 }}}
 /*********************************************************************************************************************/
@@ -560,7 +556,7 @@ namespace TestBinarySheepAlternative {
 
 static_assert(
 std::same_as<
-// Sprout the sheep. Second argument is not available for this macro function:
+// Second argument is not available for this macro function:
     std::tuple<
         BINARY_SHEEP_ALTERNATIVE_SPROUT(10)
     >,
@@ -599,11 +595,11 @@ std::same_as<
     >
 >
 );
-// Unset the instance.
+// Unset "define_boolean_sheep_alternative.hpp".
 #include "macaron/fragmental/amenity/instances/undef_boolean_sheep_alternative.hpp"
 
-// Unset the convenient header.
-#include "macaron/fragmental/amenity/define_binary_sheep_alternative.hpp"
+// Unset "define_binary_sheep_alternative.hpp".
+#include "macaron/fragmental/amenity/undef_binary_sheep_alternative.hpp"
 
 }}}
 /*********************************************************************************************************************/
@@ -635,7 +631,7 @@ namespace TestAlkane {
 
 static_assert(
 std::same_as<
-// Sprout the alkane. Second argument is not available for this macro function:
+// Second argument is not available for this macro function:
     std::tuple<
         ALKANE_SPROUT(10)
     >,
@@ -657,13 +653,13 @@ std::same_as<
 >
 );
 
-// #undef the macros!
+// #undef the macros.
 #undef ALKANE_PREFIX
 #undef ALKANE_CARBON
 #undef ALKANE_SUFFIX
 #undef ALKANE_SEPARATOR
 
-// Pre-defined instance for std::integral_constant<int, 0>:
+// Pre-defined instance for `std::integral_constant<int, 0>`:
 #include "macaron/fragmental/amenity/instances/define_integral_constant_zero_alkane.hpp"
 static_assert(
 std::same_as<
@@ -747,7 +743,7 @@ std::same_as<
     >
 >
 );
-// Unset the instance.
+// Unset "define_integer_zero_alkane.hpp".
 #include "macaron/fragmental/amenity/instances/undef_integer_zero_alkane.hpp"
 
 // Pre-defined instance for -1:
@@ -762,7 +758,7 @@ std::same_as<
     >
 >
 );
-// Unset the instance.
+// Unset "define_integer_negative_one_alkane.hpp".
 #include "macaron/fragmental/amenity/instances/undef_integer_negative_one_alkane.hpp"
 
 // Pre-defined instance for 1:
@@ -777,10 +773,10 @@ std::same_as<
     >
 >
 );
-// Unset the instance.
+// Unset "define_integer_one_alkane.hpp".
 #include "macaron/fragmental/amenity/instances/undef_integer_one_alkane.hpp"
 
-// Unset the convenient header.
+// Unset "define_alkane.hpp".
 #include "macaron/fragmental/amenity/undef_alkane.hpp"
 
 }}}
