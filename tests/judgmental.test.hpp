@@ -21,7 +21,7 @@
 #include <concepts>
 // Since macaron is intended to be used for testing, \
 // including external headers like this could cause false positive or negative.
-// For example, if the code we are testing forgot to #include <concepts> itself \
+// For example, if the code we are testing forgot to `#include <concepts>` itself \
 // and macaron included the header for it, the test would still pass.
 
 // Additional dependence for this test.
@@ -33,7 +33,7 @@
 
 
 /*********************************************************************************************************************/
-// This header contains a macro function which simplifies static_asscert(std::same_as<,>).
+// This header contains a macro function which simplifies `static_asscert(std::same_as<,>)`.
 // It has a header guard and thus shall only be truely included once in the entire program.
 #include "macaron/judgmental/same.hpp"
 
@@ -41,11 +41,11 @@ namespace Macaron {
 namespace Judgmental {
 namespace TestSame {
 
-// The tests look like a call to funtion now! 
+// The test looks like a funtion call now! 
 MACARON_JUDGMENTAL_SAME(int, int);
 // MACARON_JUDGMENTAL_SAME(int, int*); /* This one will not pass. */
 
-// If the parameter we want to test has comma in it, we can place a pair of parentheses around it.
+// If the parameter we want to test contains comma, we can surrounded it by parentheses.
 template<auto, auto>
 using TesterA = int;
 
@@ -63,20 +63,19 @@ MACARON_JUDGMENTAL_SAME((std::tuple<int, int*>), (TesterB<int, int*>));
 
 
 /*********************************************************************************************************************/
-// It doesn't save many letters if we have to type 'MACARON_JUDGMENTAL_SAME' all the time.
-// That's why I wrote a convenient header to shorten the name to 'SAME'.
+// It doesn't save many letters if we have to type `MACARON_JUDGMENTAL_SAME` all the time.
+// That's why I wrote a convenient header to shorten the name to `SAME`.
 #include "macaron/judgmental/amenity/define_same.hpp"
-// Admittedly, 'SAME' doesn't sound as safe as 'MACARON_JUDGMENTAL_SAME',\
-// at it could collide with other names we want to use. 
+// Renaming the macro `SAME` increases the chance of colliding with other names. 
 // Therefore This header does not have a header guard.
 // It is intended to be included every time we want to use it and unset right after.
-// It can be unset by including its sister header 'undef_same.hpp'.
+// It can be unset by including its sister header "undef_same.hpp".
 
 namespace Macaron {
 namespace Judgmental {
 namespace TestSame {
 
-// The function is much more descriptive now! 
+// The function is more descriptive now! 
 SAME(int, int);
 // SAME(int, int*); /* This one will not pass. */
 
@@ -93,7 +92,7 @@ SAME((std::tuple<int, int*>), (TesterB<int, int*>));
 
 }}}
 
-// Don't forget to unset the convenient header!
+// unset "define_same.hpp"
 #include "macaron/judgmental/amenity/undef_same.hpp"
 /*********************************************************************************************************************/
 
@@ -101,9 +100,9 @@ SAME((std::tuple<int, int*>), (TesterB<int, int*>));
 
 
 /*********************************************************************************************************************/
-// Here is a function which is also wrapped around static_assert(std::same_as<,>).
+// Here is a function which is also wrapped around `static_assert(std::same_as<,>)`.
 // However, it only takes one parameter. 
-// Another parameter for std::same_as is provided by macro MACARON_JUDGMENTAL_SAME_TYPE_SUPPOSED.
+// Another parameter for `std::same_as` is provided by macro MACARON_JUDGMENTAL_SAME_TYPE_SUPPOSED.
 #include "macaron/judgmental/same_type.hpp"
 
 // Convenient header.
@@ -128,7 +127,7 @@ using TesterA = int;
 
 SAME_TYPE(TesterA<0, 0>);
 
-// Don't forget to #undef SUPPOSED_TYPE
+// #undef SUPPOSED_TYPE
 #undef SUPPOSED_TYPE
 
 // Commas can also appear insid SUPPOSED_TYPE:
@@ -140,12 +139,12 @@ using TesterB = std::tuple<A, B>;
 
 SAME_TYPE(TesterB<int, int*>);
 
-// Don't forget to #undef SUPPOSED_TYPE
+// #undef SUPPOSED_TYPE
 #undef SUPPOSED_TYPE
 
 }}}
 
-// Don't forget to unset the convenient header!
+// Unset "define_same_type.hpp"
 #include "macaron/judgmental/amenity/undef_same_type.hpp"
 /*********************************************************************************************************************/
 
@@ -175,8 +174,8 @@ INHERIT(std::bool_constant<true>, (std::integral_constant<bool, true>));
 
 
 /*********************************************************************************************************************/
-// This function simplifies static_assert(std::derived_from<,>) but takes only one parameter.
-// Another parameter is provided by macro MACARON_JUDGMENTAL_DERIVED_TYPE_BASE_SUPPOSED.
+// This function simplifies `static_assert(std::derived_from<,>)` but takes only one parameter.
+// Another parameter is provided by macro `MACARON_JUDGMENTAL_DERIVED_TYPE_BASE_SUPPOSED`.
 #include "macaron/judgmental/derived_type.hpp"
 
 // Convenient header.
@@ -197,15 +196,15 @@ DERIVED_TYPE(std::integral_constant<bool, true>);
 
 }}}
 
-// Unset convenient header.
-#include "macaron/judgmental/amenity/define_derived_type.hpp"
+// Unset "define_derived_type.hpp".
+#include "macaron/judgmental/amenity/undef_derived_type.hpp"
 /*********************************************************************************************************************/
 
 
 
 
 /*********************************************************************************************************************/
-// This function 'simplifies' static_assert(==).
+// This function 'simplifies' `static_assert(==)`.
 // It is hardly a simplification. I wrote them for symmetry.
 #include "macaron/judgmental/equal.hpp"
 
@@ -222,7 +221,7 @@ EQUAL(1, ((0, 1)));
 
 }}}
 
-// Unset convenient header.
+// Unset "def_equal.hpp".
 #include "macaron/judgmental/amenity/undef_equal.hpp"
 /*********************************************************************************************************************/
 
@@ -231,7 +230,7 @@ EQUAL(1, ((0, 1)));
 
 /*********************************************************************************************************************/
 // This function is essentially the same as previous one but takes only one parameter   \
-// with the other one provided by macro MACARON_JUDGMENTAL_EQUAL_VALUE_SUPPOSED.
+// with the other one provided by macro `MACARON_JUDGMENTAL_EQUAL_VALUE_SUPPOSED`.
 #include "macaron/judgmental/equal_value.hpp"
 
 // Convenient header.
@@ -250,7 +249,7 @@ EQUAL_VALUE(1);
 
 }}}
 
-// Unset convenient header.
+// Unset "define_equal_value.hpp".
 #include "macaron/judgmental/amenity/undef_equal_value.hpp"
 /*********************************************************************************************************************/
 
@@ -259,7 +258,7 @@ EQUAL_VALUE(1);
 
 /*********************************************************************************************************************/
 // This function tests whether an expression evaluates to true.
-// It is a simplification to static_assert().
+// It is a simplification to `static_assert()`.
 #include "macaron/judgmental/valid.hpp"
 
 // Convenient header.
@@ -283,7 +282,7 @@ VALID(Tester<1, 10> == 11);
 
 }}}
 
-// Unset convenient header.
+// Unset "define_valid.hpp".
 #include "macaron/judgmental/amenity/undef_valid.hpp"
 /*********************************************************************************************************************/
 
@@ -292,7 +291,7 @@ VALID(Tester<1, 10> == 11);
 
 /*********************************************************************************************************************/
 // This function tests whether an expression evaluates to false.
-// It is a simplification to static_assert(not).
+// It is a simplification to `static_assert(not)`.
 #include "macaron/judgmental/invalid.hpp"
 
 // Convenient header.
@@ -316,7 +315,7 @@ INVALID(Tester<1, 10> != 11);
 
 }}}
 
-// Unset convenient header.
+// Unset `define_invalid`.
 #include "macaron/judgmental/amenity/undef_invalid.hpp"
 /*********************************************************************************************************************/
 
