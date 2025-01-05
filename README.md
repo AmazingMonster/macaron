@@ -21,9 +21,9 @@ Macaron consists of two sections:
 
 ## Install
 
-Conceptrodon is a header-only library. After downloading the code, move the directory *./conceptrodon* to your project, then use it like your own headers.
+Macaron is a header-only library. After downloading the code, move the directory *./macaron* to your project, then use it like your own headers.
 
-You can also install Conceptrodon using CMake:
+You can also install Macaron using CMake:
 
 ### Windows
 
