@@ -3,7 +3,7 @@ SPDX-License-Identifier: Apache-2.0 -->
 
 # Hello World
 
-- [**To Index**](./index.md#introduction-hello-world)
+- [**To Index**](../index.md#introduction-hello-world)
 - [*Prologue*](#prologue)
 - [*Comma Problem*](#comma-problem)
 
