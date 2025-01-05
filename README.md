@@ -17,7 +17,9 @@ Macaron consists of two sections:
 - **Judgmental**: wrap `static_assert` boilerplates into function-like macros.
 - **Fragmental**: list a large number of macros following specific patterns for sequential token generation.
 
-## [Documentation](./DOCS.md)## Install
+## [Documentation](./DOCS.md)
+
+## Install
 
 Conceptrodon is a header-only library. After downloading the code, move the directory *./conceptrodon* to your project, then use it like your own headers.
 
