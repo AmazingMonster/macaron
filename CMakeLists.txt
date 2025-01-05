@@ -9,14 +9,14 @@ project(
 # cache variables for installation destinations
 include(GNUInstallDirs)
 
-add_library(MacaronMacros INTERFACE)
+add_library(MacaronFacilities INTERFACE)
 
-set_target_properties(MacaronMacros PROPERTIES
-    OUTPUT_NAME MacaronMacros
-    EXPORT_NAME Macros
+set_target_properties(MacaronFacilities PROPERTIES
+    OUTPUT_NAME MacaronFacilities
+    EXPORT_NAME Facilities
 )
 
-target_include_directories(MacaronMacros INTERFACE
+target_include_directories(MacaronFacilities INTERFACE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
@@ -39,7 +39,7 @@ endif()
 
 
 install(
-    TARGETS MacaronMacros
+    TARGETS MacaronFacilities
     EXPORT Macaron
 )
 

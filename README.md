@@ -17,7 +17,49 @@ Macaron consists of two sections:
 - **Judgmental**: wrap `static_assert` boilerplates into function-like macros.
 - **Fragmental**: list a large number of macros following specific patterns for sequential token generation.
 
-## [Documentation](./DOCS.md)
+## [Documentation](./DOCS.md)## Install
+
+Conceptrodon is a header-only library. After downloading the code, move the directory *./conceptrodon* to your project, then use it like your own headers.
+
+You can also install Conceptrodon using CMake:
+
+### Windows
+
+1. Download the library.
+
+2. Open Developer Command Prompt that comes with Visual Studio. Redirect to the library folder. Generate a project buildsystem using CMake:
+
+    ```Shell
+    cmake -S . -B "Where to build"
+    ```
+
+3. Redirect to the build directory you specified after `-B` earlier. Run command:
+
+    ```Shell
+    cmake --install . --prefix "Where to install"
+    ```
+
+After installation, add the install directory you specified after `--prefix` to variable `CMAKE_PREFIX_PATH` in your project's *CMakeCache.txt*. If the variable doesn't exist, you will need to add the following line to your *CMakeCache.txt*:
+
+```CMake
+CMAKE_PREFIX_PATH:PATH=Install directory of the library
+```
+
+If `CMAKE_PREFIX_PATH` already exists,
+append the install directory to the values of the variable(note the added semicolon):
+
+```CMake
+CMAKE_PREFIX_PATH:PATH=...; Install directory of the library
+```
+
+In the *CMakeList.txt* of your project, Add:
+
+```CMake
+find_package(Macaron REQUIRED CONFIG)
+target_link_libraries(YourProject PRIVATE Macaron::Facilities)
+```
+
+You are good to go.
 
 ## References
 
