@@ -1,11 +1,11 @@
 // Copyright 2024 Feng Mofan
 // SPDX-License-Identifier: Apache-2.0
 
-#define MACARON_FRAGMENTAL_ALKANE_PREFIX_SYMBOLS \
+#define ALKANE_PREFIX \
     std::integral_constant<int,
-#define MACARON_FRAGMENTAL_ALKANE_CARBON_SYMBOLS  \
+#define ALKANE_CARBON  \
     -1
-#define MACARON_FRAGMENTAL_ALKANE_SUFFIX_SYMBOLS \
+#define ALKANE_SUFFIX \
     >
-#define MACARON_FRAGMENTAL_ALKANE_SEPARATOR_SYMBOLS  \
+#define ALKANE_SEPARATOR  \
     ,

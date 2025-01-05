@@ -21,6 +21,22 @@ target_include_directories(MacaronMacros INTERFACE
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
 )
 
+# Test
+if(CMAKE_SOURCE_DIR STREQUAL Macaron_SOURCE_DIR OR TEST_Macaron)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_executable(TestMacaron
+    ${CMAKE_CURRENT_LIST_DIR}/tests/tests.cpp
+)
+
+target_include_directories(TestMacaron
+    PRIVATE ${CMAKE_CURRENT_LIST_DIR}
+)
+
+endif()
+
 
 install(
     TARGETS MacaronMacros

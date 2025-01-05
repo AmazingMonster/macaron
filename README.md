@@ -2,24 +2,22 @@
 
 A C++ preprocessor library for metaprogramming testing.
 
-## Introduction
+## Prologue
 
 This library started as a collection of boilerplates wrapped around static_assert. It was used when I was working on a metaprogramming library named [Conceptrodon](https://github.com/AmazingMonster/conceptrodon).  
 
 As Conceptrodon grows more complicated, the sheer amount of boilerplates is both bothersome and error-prone.
-Often, a typo during testing could hide itself in plain sight as I frustratedly debugged through the real code. Eventually, I made this library.  
+Often, a typo during testing could hide itself in plain sight as I frustratedly debugged through the production code. Eventually, I made this library.  
 
-The goal of Macaron is to simplify numerous static_asserts and provide a fast way to generate dummy testers. A macro call can create a list of tokens of any amount below 320.
+The goal of Macaron is to simplify numerous static_asserts and provide a convenient way to generate tokens. A macro call can create a list of tokens of any amount below 320.
 This allows me to test metafunction performance on a large scale.  
 
-Macaron consists of four sections:
+Macaron consists of two sections:
 
-- [Rudimental](https://github.com/AmazingMonster/macaron/tree/main/macaron/rudimental). This section contains details of basic macro manipulation. It is not part of this library's interface.
-- [Judgmental](https://github.com/AmazingMonster/macaron/tree/main/macaron/judgmental). This section contains macro functions wrapped around static_assert.
-- [Fragmental](https://github.com/AmazingMonster/macaron/tree/main/macaron/fragmental). This section contains macro functions for token generation.
-- [Ornamental](https://github.com/AmazingMonster/macaron/tree/main/macaron/ornamental). Functions in this section were originally used to deal with the 'comma problem' of C++ preprocessor. The problem was solved via a different approach. This section is kept since it can still simplify some situations.
+- **Judgmental**: wrap `static_assert` boilerplates into function-like macros.
+- **Fragmental**: list a large number of macros following specific patterns for sequential token generation.
 
-A detailed introduction to each section, except Rudimental, can be found in the test directory.
+## [Documentation](./DOCS.md)
 
 ## References
 

@@ -102,7 +102,7 @@ SAME((std::tuple<int, int*>), (TesterB<int, int*>));
 /*********************************************************************************************************************/
 // Here is a function which is also wrapped around `static_assert(std::same_as<,>)`.
 // However, it only takes one parameter. 
-// Another parameter for `std::same_as` is provided by macro MACARON_JUDGMENTAL_SAME_TYPE_SUPPOSED.
+// Another parameter for `std::same_as` is provided by macro MACARON_JUDGMENTAL_SAME_TYPE_SUPPOSED_TYPE.
 #include "macaron/judgmental/same_type.hpp"
 
 // Convenient header.
@@ -115,7 +115,7 @@ namespace TestSameType {
 // Since we included the convenient header, the name to define is shorter and more descriptive.
 #define SUPPOSED_TYPE   \
     int
-// If we did not include the convenient header, we will have to #define MACARON_JUDGMENTAL_SAME_TYPE_SUPPOSED
+// If we did not include the convenient header, we will have to #define MACARON_JUDGMENTAL_SAME_TYPE_SUPPOSED_TYPE
 
 // Do tests.
 SAME_TYPE(int);
@@ -175,7 +175,7 @@ INHERIT(std::bool_constant<true>, (std::integral_constant<bool, true>));
 
 /*********************************************************************************************************************/
 // This function simplifies `static_assert(std::derived_from<,>)` but takes only one parameter.
-// Another parameter is provided by macro `MACARON_JUDGMENTAL_DERIVED_TYPE_BASE_SUPPOSED`.
+// Another parameter is provided by macro `MACARON_JUDGMENTAL_DERIVED_TYPE_SUPPOSED_BASE`.
 #include "macaron/judgmental/derived_type.hpp"
 
 // Convenient header.
@@ -230,7 +230,7 @@ EQUAL(1, ((0, 1)));
 
 /*********************************************************************************************************************/
 // This function is essentially the same as previous one but takes only one parameter   \
-// with the other one provided by macro `MACARON_JUDGMENTAL_EQUAL_VALUE_SUPPOSED`.
+// with the other one provided by macro `MACARON_JUDGMENTAL_EQUAL_VALUE_SUPPOSED_VALUE`.
 #include "macaron/judgmental/equal_value.hpp"
 
 // Convenient header.

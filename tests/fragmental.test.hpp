@@ -489,8 +489,8 @@ std::same_as<
     >,
     std::tuple<
 // The second argument will be added to the end of the second number.
-//      BINARY_SHEEP_PREFIX             0           SHEEP_SUFFIX      BINARY_SHEEP_SEPARATOR   
-        std::integral_constant<int,     0               >                       , 
+//      BINARY_SHEEP_PREFIX             0           BINARY_SHEEP_SUFFIX      BINARY_SHEEP_SEPARATOR   
+        std::integral_constant<int,     0                   >                       , 
         std::integral_constant<int, 1>,
         std::integral_constant<int, 0>,
         std::integral_constant<int, 1>,
@@ -499,8 +499,8 @@ std::same_as<
         std::integral_constant<int, 0>,
         std::integral_constant<int, 1>,
         std::integral_constant<int, 0>,
-//      BINARY_SHEEP_PREFIX             1           SHEEP_SUFFIX
-        std::integral_constant<int,     1               >
+//      BINARY_SHEEP_PREFIX             1           BINARY_SHEEP_SUFFIX
+        std::integral_constant<int,     1                   >
     >
 >
 );
@@ -562,8 +562,8 @@ std::same_as<
     >,
     std::tuple<
 // The second argument will be added to the end of the second number.
-//      BINARY_SHEEP_PREFIX             1           SHEEP_SUFFIX      BINARY_SHEEP_SEPARATOR   
-        std::integral_constant<int,     1               >                       , 
+//      BINARY_SHEEP_PREFIX             1           BINARY_SHEEP_SUFFIX      BINARY_SHEEP_SEPARATOR   
+        std::integral_constant<int,     1                   >                       , 
         std::integral_constant<int, 0>,
         std::integral_constant<int, 1>,
         std::integral_constant<int, 0>,
@@ -572,8 +572,8 @@ std::same_as<
         std::integral_constant<int, 1>,
         std::integral_constant<int, 0>,
         std::integral_constant<int, 1>,
-//      BINARY_SHEEP_PREFIX             0           SHEEP_SUFFIX
-        std::integral_constant<int,     0               >
+//      BINARY_SHEEP_PREFIX             0           BINARY_SHEEP_SUFFIX
+        std::integral_constant<int,     0                   >
     >
 >
 );
@@ -637,8 +637,8 @@ std::same_as<
     >,
     std::tuple<
 // The second argument will be added to the end of the second number.
-//      BINARY_SHEEP_PREFIX             0           SHEEP_SUFFIX      BINARY_SHEEP_SEPARATOR   
-        std::integral_constant<int,     0               >                       , 
+//      BINARY_SHEEP_PREFIX             0           BINARY_SHEEP_SUFFIX      BINARY_SHEEP_SEPARATOR   
+        std::integral_constant<int,     0                    >                       , 
         std::integral_constant<int, 0>,
         std::integral_constant<int, 0>,
         std::integral_constant<int, 0>,
@@ -647,8 +647,8 @@ std::same_as<
         std::integral_constant<int, 0>,
         std::integral_constant<int, 0>,
         std::integral_constant<int, 0>,
-//      BINARY_SHEEP_PREFIX             0           SHEEP_SUFFIX
-        std::integral_constant<int,     0               >
+//      BINARY_SHEEP_PREFIX             0           BINARY_SHEEP_SUFFIX
+        std::integral_constant<int,     0                    >
     >
 >
 );
