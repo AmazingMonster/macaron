@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.28)
 
+# Generate compile_commands.json for clangd
+# set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 project(
     Macaron
     VERSION 1.0.0.0
